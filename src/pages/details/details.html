@@ -1,0 +1,60 @@
+
+<ion-header color="dark">
+  <ion-navbar color="primary">
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <div *ngIf="itemDetails != null">
+    <img class="recipeImg" src="{{ itemDetails.images[0].hostedLargeUrl }}" alt="Recipe photo"/>
+    <ion-row>
+      <ion-col class="title-size background-color-details">
+        {{ itemDetails.name }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        By {{ itemDetails.source.sourceDisplayName }}
+      </ion-col>
+    </ion-row>
+    <ion-row class="background-color-details">
+      <ion-col>
+        <div class="bold" *ngIf="recipeTime != null ">
+          Time: {{ recipeTime }}
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="bold" *ngIf="itemDetails.numberOfServings != null">
+          Servings: {{ itemDetails.numberOfServings }}
+        </div>
+      </ion-col>
+      <ion-col >
+        <div class="rating" *ngIf="rating != null">
+          <span *ngFor="let number of rating">
+            <ion-icon name="star"></ion-icon>
+          </span>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="bold">
+        Ingredients
+      </ion-col>
+    </ion-row>
+    <ul>
+      <li *ngFor="let item of ingredientList">
+        {{ item }}
+      </li>
+    </ul>
+    <button ion-button block class="btnInst" (click)="launch(itemDetails.source.sourceRecipeUrl)">View instructions</button>
+    <ion-row>
+      <ion-col>
+        <div *ngIf="itemDetails != null && itemDetails.attribution != null">
+          <span>{{ itemDetails.attribution.text }}</span>
+          <img class="align-middle" alt='Yummly' src='{{ itemDetails.attribution.logo }}' (click)="launch(itemDetails.attribution.url)"/>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

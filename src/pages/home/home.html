@@ -1,0 +1,43 @@
+<ion-header color="dark">
+  <ion-navbar color="primary">
+    <ion-title>Popular Recipes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="cards-bg">
+  <ion-card *ngFor="let item of recipes">
+    <ion-card-content (click)="itemSelected(item)">
+      <ion-card-title>
+        {{ item.recipeName }}
+      </ion-card-title>
+      <p>
+        By {{ item.sourceDisplayName }}
+      </p>
+    </ion-card-content>
+    <div *ngFor="let imageItem of images; let i = index" [attr.data-index]="i">
+      <img class="" *ngIf="imageItem.id == item.id" src="{{imageItem.url}}" alt="recipePhoto" (click)="itemSelected(item)"/>
+    </div>
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left (click)="storeFav(item)">
+          <ion-icon name='star' padding-horizontal></ion-icon>
+          Favourites
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-right (click)="share(item)">
+          <ion-icon name='share' padding-horizontal></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-row>
+    <ion-col>
+      <div *ngIf="attribution != null">
+        {{ attribution.text }}
+        <img class="align-middle" alt='Yummly' src='{{ attribution.logo }}' (click)="launch(attribution.url)"/>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

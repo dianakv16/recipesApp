@@ -1,0 +1,35 @@
+page-detail {
+
+  .card-background-page {
+
+    .recipeImg{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .bold{
+      font-weight: $bold;
+    }
+    .title-size{
+      font-size: $title-size;
+    }
+
+    .background-color-details{
+      background-color: $background-color-details;
+    }
+
+    .rating{
+      text-shadow: $text-shadow;
+      color: $rating-color;
+    }
+    .btnInst{
+      border-radius: $border-radius;
+    }
+
+    .align-middle{
+      vertical-align: $align-middle;
+    }
+
+  }
+}
