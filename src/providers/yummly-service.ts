@@ -15,8 +15,8 @@ export class YummlyService {
 
 
   constructor(public http: Http) {
-    this.searchUrl = 'http://api.yummly.com/v1/api/recipes?_'
-    this.getUrl = 'http://api.yummly.com/v1/api/recipe/'
+    this.searchUrl = 'http://api.yummly.com/v1/api/recipes?_';
+    this.getUrl = 'http://api.yummly.com/v1/api/recipe/';
     this.apiId = 'Use your api Id';
     this.apiKey = 'User your api key';
   }
